@@ -1,4 +1,4 @@
 package pages;
 
-public class AbstractPage {
+abstract class AbstractPage {
 }

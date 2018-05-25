@@ -1,2 +1,3 @@
-public class AbstractTest {
+abstract class AbstractTest {
+
 }
