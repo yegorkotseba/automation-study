@@ -3,8 +3,12 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+
+
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class SearchPage extends AbstractPage {
 
@@ -21,5 +25,10 @@ public class SearchPage extends AbstractPage {
             titles.add(element.getText());
         }
         return titles;
+    }
+
+    public void verifySearchResultsContainEnteredText(){
+        //assertThat(app.searchPage.pageTitles().toString(), containsString("selenium"));
+        assertThat(getPageTitles().toString()).containsIgnoringCase("selenium");
     }
 }
