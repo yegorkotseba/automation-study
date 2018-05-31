@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -13,22 +14,28 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SearchPage extends AbstractPage {
 
     @FindBy(css = "a#pnnext")
-    public WebElement nextButton;
+    public WebElement nextResultsPageButton;
 
     @FindBy(css = "h3.r > a")
     public List<WebElement> results;
 
     public List<String> getPageTitles(){
         List<String> titles = new ArrayList<String>();
-
-        for (WebElement element : results){
-            titles.add(element.getText());
+        try {
+            while (nextResultsPageButton.isDisplayed()) {
+                for (WebElement element : results) {
+                    titles.add(element.getText());
+                }
+                nextResultsPageButton.click();
+            }
         }
-        return titles;
+        catch (NoSuchElementException e){
+        }
+            return titles;
     }
 
-    public void verifySearchResultsContainEnteredText(){
-        //assertThat(app.searchPage.pageTitles().toString(), containsString("selenium"));
-        assertThat(getPageTitles().toString()).containsIgnoringCase("selenium");
+    public void verifySearchResultsContainEnteredText(String searchedString){
+        assertThat(getPageTitles().toString()).containsIgnoringCase(searchedString);
     }
+
 }

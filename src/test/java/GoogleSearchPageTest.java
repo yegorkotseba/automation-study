@@ -1,11 +1,19 @@
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class GoogleSearchPageTest extends AbstractTest{
 
-    @Test
-    public void testGoogleSearchResult(){
-        homePage.searchFor("selenium");
-        searchPage.verifySearchResultsContainEnteredText();
+    @DataProvider (name = "searchData")
+    public static Object[][] searchData() {
+
+        return new Object[][] { { "selenium"}}; //, { "lol"}, {"test"}
+    }
+
+    @Test (dataProvider = "searchData")
+    public void testGoogleSearchResult(String searchData){
+        homePage.searchFor(searchData);
+        searchPage.verifySearchResultsContainEnteredText(searchData);
 
     }
 }

@@ -1,10 +1,12 @@
 package pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends AbstractPage {
+import java.util.concurrent.TimeUnit;
 
+public class HomePage extends AbstractPage {
 
     @FindBy(id = "lst-ib")
     public static WebElement searchField;
