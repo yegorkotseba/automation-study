@@ -7,7 +7,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
 
-public class ChromeDriverManager extends DriverManager {
+public class ChromeDriverManager1 extends DriverManager1 {
 
     private ChromeDriverService chService;
 
