@@ -26,14 +26,6 @@ public class SearchPage extends AbstractPage {
 
     public void setResults(List<WebElement> results) { this.results = results; }
 
-    private List<String> getPageTitles(){
-        List<String> titles = new ArrayList<String>();
-            for (WebElement element : results) {
-                    titles.add(element.getText());
-            }
-            return titles;
-        }
-
     /*private List<String> getPageTitles(){
         List<String> titles = new ArrayList<String>();
         try {
@@ -48,6 +40,17 @@ public class SearchPage extends AbstractPage {
         }
             return titles;
     }*/
+
+    /**
+     * This is a debugging implementation of method getPageTitles()
+     */
+    private List<String> getPageTitles(){
+        List<String> titles = new ArrayList<String>();
+            for (WebElement element : results) {
+                    titles.add(element.getText());
+            }
+            return titles;
+        }
 
     public void verifySearchResultsContainEnteredText(String searchedString){
         assertThat(getPageTitles().toString()).containsIgnoringCase(searchedString);

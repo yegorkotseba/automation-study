@@ -2,22 +2,22 @@ package engine;
 
 public class DriverManagerFactory {
 
-    public static DriverManager1 getManager(DriverTypes type) {
+    public static DriverManager getManager(DriverTypes type) {
 
-            DriverManager1 driverManager1;
+            DriverManager driverManager;
 
             switch (type) {
                 default:
-                    driverManager1 = new ChromeDriverManager1();
+                    driverManager = new ChromeDriverManager();
                     break;
                 /*case FIREFOX:
-                    driverManager1 = new FirefoxDriverManager();
+                    driverManager = new FirefoxDriverManager();
                     break;
                 default:
-                    driverManager1 = new SafariDriverManager();
+                    driverManager = new SafariDriverManager();
                     break;*/
             }
-            return driverManager1;
+            return driverManager;
 
         }
 }
