@@ -1,6 +1,4 @@
-import engine.DriverManager;
-import engine.DriverManagerFactory;
-import engine.DriverTypes;
+import utilities.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
@@ -10,15 +8,14 @@ import pages.SearchPage;
 
 abstract class AbstractTest {
 
-    private DriverManager driverManager;
+
     private static WebDriver driver;
     protected HomePage homePage;
     protected SearchPage searchPage;
 
     @BeforeMethod
     public void init(){
-        driverManager = DriverManagerFactory.getManager(DriverTypes.CHROME);
-        driver = driverManager.getDriver();
+        driver = DriverManager.getDriver();
 
         this.homePage = PageFactory.initElements(driver ,HomePage.class);
         this.searchPage = PageFactory.initElements(driver, SearchPage.class);
@@ -30,7 +27,7 @@ abstract class AbstractTest {
 
     @AfterMethod()
     public void stop(){
-        driverManager.quitDriver();
+        DriverManager.closeDriver();
     }
 
 }
