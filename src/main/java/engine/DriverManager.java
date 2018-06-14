@@ -30,7 +30,7 @@ public class DriverManager {
         }
        return instance;
     }
-    public synchronized WebDriver getDriver() {
+    public static synchronized WebDriver getDriver() {
         if (driver == null || driver.toString().contains("null")) {
             switch (PropertyReader.getBrowserName()) {
                 /*case ("ie"):
@@ -49,7 +49,7 @@ public class DriverManager {
         return driver;
     }
 
-    public WebDriver getChromeDriver() {
+    public static WebDriver getChromeDriver() {
         setPathsToDrivers();
         String path = PropertyReader.getGlobalProperty(PATH_TO_CHROME_BINARY);
         ChromeOptions options = new ChromeOptions();
@@ -85,7 +85,7 @@ public class DriverManager {
         LOG.info("Path to PhantomJS driver " + phantomJS);
     }
 
-    public void closeDriver() {
+    public static void closeDriver() {
         try {
             getDriver().close();
             getDriver().quit();
