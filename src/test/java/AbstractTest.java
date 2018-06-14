@@ -17,7 +17,7 @@ abstract class AbstractTest {
 
     @BeforeMethod
     public void init(){
-        driver = DriverManager.getInstance().getDriver();
+        driver = DriverManager.getDriver();
 
         this.homePage = PageFactory.initElements(driver ,HomePage.class);
         this.searchPage = PageFactory.initElements(driver, SearchPage.class);
@@ -29,7 +29,7 @@ abstract class AbstractTest {
 
     @AfterMethod()
     public void stop(){
-        DriverManager.getInstance().closeDriver();
+        DriverManager.closeDriver();
     }
 
 }

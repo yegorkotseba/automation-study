@@ -11,15 +11,15 @@ repositories {
 
 dependencies {
     // https://mvnrepository.com/artifact/org.testng/testng
-    testCompile group: 'org.testng', name: 'testng', version: '6.9.10'
+    compile group: 'org.testng', name: 'testng', version: '6.9.10'
 
     // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
-    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.4.0'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.5.3'
 
     compile 'org.assertj:assertj-core:3.10.0'
 
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12
-    testCompile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.21'
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.21'
 
 
 }
