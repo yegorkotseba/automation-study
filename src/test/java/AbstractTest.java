@@ -1,10 +1,11 @@
-import utilities.DriverManager;
+import engine.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.HomePage;
 import pages.SearchPage;
+import utilities.PropertyReader;
 
 abstract class AbstractTest {
 
@@ -13,6 +14,7 @@ abstract class AbstractTest {
     protected HomePage homePage;
     protected SearchPage searchPage;
 
+
     @BeforeMethod
     public void init(){
         driver = DriverManager.getDriver();
@@ -20,7 +22,7 @@ abstract class AbstractTest {
         this.homePage = PageFactory.initElements(driver ,HomePage.class);
         this.searchPage = PageFactory.initElements(driver, SearchPage.class);
 
-        driver.get("https://www.google.com/");
+        driver.get(PropertyReader.getGlobalProperty("appUrl"));
 
     }
 

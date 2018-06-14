@@ -14,6 +14,5 @@ public class GoogleSearchPageTest extends AbstractTest{
     public void testGoogleSearchResult(String searchData){
         homePage.searchFor(searchData);
         searchPage.verifySearchResultsContainEnteredText(searchData);
-
     }
 }
