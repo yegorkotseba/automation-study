@@ -7,7 +7,7 @@ public class GoogleSearchPageTest extends AbstractTest{
     @DataProvider (name = "searchData")
     public static Object[][] searchData() {
 
-        return new Object[][] {{ "selenium"}}; //, { "lamoda"}, {"teamviewer"
+        return new Object[][] {{ "selenium"}, { "lamoda"}, {"teamviewer"}};
     }
 
     @Test (dataProvider = "searchData")
