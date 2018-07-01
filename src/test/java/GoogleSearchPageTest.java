@@ -1,4 +1,3 @@
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -7,7 +6,7 @@ public class GoogleSearchPageTest extends AbstractTest{
     @DataProvider (name = "searchData")
     public static Object[][] searchData() {
 
-        return new Object[][] {{ "selenium"}, { "lamoda"}, {"teamviewer"}};
+        return new Object[][] {{ "selenium"}, {"awesome"}, { "tool"}};
     }
 
     @Test (dataProvider = "searchData")
